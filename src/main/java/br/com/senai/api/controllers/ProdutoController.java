@@ -1,6 +1,8 @@
 package br.com.senai.api.controllers;
 
 import br.com.senai.api.models.Produto;
+import br.com.senai.api.services.ProdutoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 @RestController // métodos http de comunicação
 @RequestMapping("/produtos")
 public class ProdutoController {
+    @Autowired
+    private ProdutoService service;
     //lista com todos os produtos do restaurante
     @GetMapping  //     /produtos
     public List<Produto> listar(){
@@ -16,7 +20,7 @@ public class ProdutoController {
     //Encontrar um produto pelo seu id
     @GetMapping("/{id}") //      /produtos/1
     public Produto buscarPorId(@PathVariable Long id){
-        return service.buscarPorId();
+        return service.buscarPorId(id);
     }
     //Salvar um produto
     @PostMapping // para receber dados usamos @RequestBody
@@ -35,9 +39,4 @@ public class ProdutoController {
     public void deletar(@PathVariable Long id){
         service.deletar(id);
     }
-
-
-
-
-
 }
