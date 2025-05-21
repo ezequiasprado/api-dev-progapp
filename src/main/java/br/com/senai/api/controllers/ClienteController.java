@@ -1,6 +1,8 @@
 package br.com.senai.api.controllers;
 
 import br.com.senai.api.models.Cliente;
+import br.com.senai.api.services.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
+    @Autowired
+    private ClienteService service;
     //lista com todos os clientes
     @GetMapping
     public List<Cliente> listar(){
