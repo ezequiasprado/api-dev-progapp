@@ -11,11 +11,29 @@ import java.util.List;
 public class ClienteService {
     @Autowired
     private ClienteRepository repository;
-
+    //listar todos clientes
     public List<Cliente> listarTodos(){
         return repository.findAll();
     }
+    //procurar um cliente pelo Id
+    public Cliente buscarPorId(long id){
+        return repository.findById(id).orElse(null);
+    }
+    //salvar um cliente no banco de dados
+    public Cliente salvar(Cliente cliente){
+        return repository.save(cliente);
+    }
+    //atualizar os dados do cliente
+    public Cliente atualizar(Cliente cliente){
+        return repository.save(cliente);
+    }
+    //deletar um cliente pelo seu id
+    public void deletar(long id){
+        repository.deleteById(id);
+    }
 
-    public Cliente
+
+
+
 
 }
