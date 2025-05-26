@@ -14,7 +14,7 @@ public class Cliente {
     private String cpf;
     private String email;
     private String senha;
-    //métodos de acesso
+    //métodos de acesso ok
 
 
     public Long getId() {
